@@ -14,7 +14,7 @@ public class TodolistServiceImpl implements TodolistService{
     public void showTodoList() {
         Todolist[] model = todoListRepository.getAll();
 
-        System.out.println("TODOLIST");
+//        System.out.println("TODOLIST");
         for (var i = 0; i < model.length ; i ++){
             var todolist = model[i];
             var no = i + 1;
@@ -26,12 +26,19 @@ public class TodolistServiceImpl implements TodolistService{
     }
 
     @Override
-    public void addTodoList(String todolist) {
-
+    public void addTodoList(String todo) {
+        Todolist todolist = new Todolist(todo);
+        todoListRepository.add(todolist);
+        System.out.println("TODOLIST ADDED: " + todo);
     }
 
     @Override
     public void removeTodoList(Integer number) {
-
+        boolean success = todoListRepository.remove(number);
+        if (success){
+            System.out.println("BERHASIL MENGHAPUS TODO" + number);
+        }else {
+            System.out.println("GAGAL MENGHAPUS TODO : " + number);
+        }
     }
 }

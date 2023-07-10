@@ -7,7 +7,7 @@ public class Todolist{
     }
 
     /**
-     * constructor ke-2 berpertan untuk menyimpan data yang dikirim, class diubah menjadi bentuk array
+     * constructor ke-2 berperan untuk menyimpan data yang dikirim, class diubah menjadi bentuk array
      * @param todo
      */
     public Todolist(String todo) {

@@ -8,7 +8,7 @@ import service.TodolistServiceImpl;
 
 public class TodolistServiceTest {
     public static void main(String[] args) {
-        testShowTodolist();
+        testRemoveTodoList();
     }
 
     public static void testShowTodolist()
@@ -19,6 +19,32 @@ public class TodolistServiceTest {
         todolistRepository.data[2] = new Todolist("Belajar Java Standard Classess");
         TodolistService todolistService = new TodolistServiceImpl(todolistRepository);
 
+        todolistService.showTodoList();
+    }
+
+    public static void testAddTodolist()
+    {
+        TodolistRepository todolistRepository = new TodolistRepositoryImpl();
+        TodolistService todolistService = new TodolistServiceImpl(todolistRepository);
+
+        todolistService.addTodoList("Belajar Java Dasar");
+        todolistService.addTodoList("Belajar Java OOP");
+        todolistService.addTodoList("Belajar Java Standard Classess");
+        todolistService.showTodoList();
+    }
+
+    public static void testRemoveTodoList()
+    {
+        TodolistRepository todolistRepository = new TodolistRepositoryImpl();
+        TodolistService todolistService = new TodolistServiceImpl(todolistRepository);
+
+        todolistService.addTodoList("Belajar Java Dasar");
+        todolistService.addTodoList("Belajar Java OOP");
+        todolistService.addTodoList("Belajar Java Standard Classess");
+        todolistService.showTodoList();
+        todolistService.removeTodoList(5);
+        todolistService.showTodoList();
+        todolistService.removeTodoList(2);
         todolistService.showTodoList();
     }
 }
